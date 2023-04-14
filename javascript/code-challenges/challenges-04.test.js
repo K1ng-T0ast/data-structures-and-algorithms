@@ -40,10 +40,10 @@ For example: 'Cat' would come before 'apple'
 
 const sortNames = (arr) => {
   return arr.sort((a, b) => {
-    if (a.charAt(0).toLowerCase() === b.charAt(0).toLowerCase()) {
-      return a.charAt(0) === a.charAt(0).toUpperCase() ? -1 : 1;
+    if (a.charAt(0) === b.charAt(0)) {
+      return a.charAt(0) === a.charAt(0) ? -1 : 1;
     } else {
-      return a.toLowerCase() < b.toLowerCase() ? -1 : 1;
+      return a < b ? -1 : 1;
     }
   });
 };
@@ -91,13 +91,7 @@ const alphabetize = (arr) => {
     if (a === b) {
       return 0;
     }
-    const aUpper = a.toUpperCase();
-    const bUpper = b.toUpperCase();
-    if (aUpper === bUpper) {
-      return a < b ? -1 : 1;
-    } else {
-      return aUpper < bUpper ? -1 : 1;
-    }
+    return a < b ? -1 : 1;
   });
 };
 
