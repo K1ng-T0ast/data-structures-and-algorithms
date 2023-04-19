@@ -130,10 +130,10 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   for (const ingredient of recipe.ingredients) {
-    const firstSpaceIndex = ingredient.indexOf(' ');
-    const secondSpaceIndex = ingredient.indexOf(' ', firstSpaceIndex + 1);
-    const foodName = ingredient.slice(secondSpaceIndex + 1);
-    result.push(foodName);
+    const firstIdx = ingredient.indexOf(' ');
+    const secondIdx = ingredient.indexOf(' ', firstIdx + 1);
+    const foodItem = ingredient.slice(secondIdx + 1);
+    result.push(foodItem);
   }
   return result;
 };
