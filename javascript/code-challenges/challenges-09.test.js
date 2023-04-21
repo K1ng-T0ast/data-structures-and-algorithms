@@ -21,7 +21,8 @@ Write a function named getCourseKeys that takes in the courseInfo object and ret
 
 For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
-const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+const courseInfo = {
+  name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
   topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
   finalExam: true
 };
@@ -118,7 +119,7 @@ const characters = [
 
 const getHouses = (arr) => {
   let houses = [];
-  for (let character of arr){
+  for (let character of arr) {
     houses.push(character.house);
   }
   return houses;
@@ -136,13 +137,27 @@ hasChildrenValues(characters, 'Cersei') will return true
 hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
+// const hasChildrenValues = (arr, character) => {
+//   for (let parents of arr) {
+//     if (parents.children === character && Object.values(parents).includes(true)){
+//       return true;
+//     }
+//   }
+//   return false;
+// };
+
+// let hasChildren = false;
+
 const hasChildrenValues = (arr, character) => {
-  for (let parents of arr) {
-    if (parents.children === character && Object.values(parents).includes(true)){
-      return true;
+  let hasChildren = false;
+  arr.forEach(person => {
+    if (person.name === character) {
+      let values = Object.values(person);
+
+      values.length === 4 ? hasChildren = true : hasChildren;
     }
-  }
-  return false;
+  });
+  return hasChildren;
 };
 
 /* ------------------------------------------------------------------------------------------------
